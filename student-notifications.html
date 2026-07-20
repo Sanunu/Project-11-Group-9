@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMCS — Notifications</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+  <link rel="stylesheet" href="css/student-pages.css" />
+</head>
+<body>
+  <div class="phone-bg">
+    <div class="phone">
+      <div class="status-bar">
+        <span id="clock">9:41</span>
+        <span class="icons">
+          <span data-icon="signal"></span>
+          <span data-icon="wifi"></span>
+          <span data-icon="battery"></span>
+        </span>
+      </div>
+
+      <div class="s-header">
+        <h1>Notifications</h1>
+        <div class="h-actions">
+          <span data-icon="search" id="searchToggle" style="cursor:pointer"></span>
+          <span class="link-action" id="markAllRead"><span data-icon="check"></span></span>
+        </div>
+      </div>
+
+      <div style="padding:12px 20px 0;">
+        <div class="pill-row" id="catFilter">
+          <button class="pill active" data-cat="all">All</button>
+          <button class="pill" data-cat="unread">Unread</button>
+          <button class="pill" data-cat="exam">Exam</button>
+          <button class="pill" data-cat="holiday">Holiday</button>
+          <button class="pill" data-cat="attendance">Attendance</button>
+        </div>
+      </div>
+
+      <div class="app-body" style="padding-top:14px;">
+        <div class="notif-list-grid" id="notifList"></div>
+
+        <div class="note-box" style="margin-top:16px;">
+          <span class="n-ic" data-icon="alert-circle"></span>
+          <span><b>Notification Settings</b><br />You can manage your alert preferences for exams and schedule changes in the Profile settings.</span>
+        </div>
+      </div>
+
+      <nav class="bottom-nav">
+        <a href="student-dashboard.html"><span class="bn-ic" data-icon="home"></span>Dashboard</a>
+        <a href="student-timetable.html"><span class="bn-ic" data-icon="calendar"></span>Timetable</a>
+        <a href="student-records.html"><span class="bn-ic" data-icon="clipboard-check"></span>Attendance</a>
+        <a href="student-notifications.html" class="active"><span class="bn-ic" data-icon="bell"></span>Notifications</a>
+        <a href="#" id="navLogout"><span class="bn-ic" data-icon="user"></span>Profile</a>
+      </nav>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/seed.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/student-notifications.js"></script>
+</body>
+</html>
