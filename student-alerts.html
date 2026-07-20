@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMCS — System Alerts</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/alerts.css" />
+</head>
+<body>
+  <div class="alerts-app">
+    <div class="alerts-top">
+      <div class="brand">
+        <span class="logo" data-icon="graduation-cap"></span>
+        System Alerts
+      </div>
+      <div class="top-actions">
+        <span class="mark-read" id="markAllRead"><span data-icon="check"></span> Mark All Read</span>
+        <span class="notif-dot" data-icon="bell"></span>
+        <span data-icon="user-circle"></span>
+      </div>
+    </div>
+
+    <div class="alerts-body">
+      <!-- List pane -->
+      <div class="alerts-list">
+        <div class="alerts-search">
+          <span class="s-ic" data-icon="search"></span>
+          <input type="text" id="alertSearch" placeholder="Search alerts..." />
+        </div>
+        <div class="alerts-tabs" id="alertTabs">
+          <button class="active" data-tab="all">All</button>
+          <button data-tab="unread">Unread</button>
+          <button data-tab="important">Important</button>
+        </div>
+        <div id="alertList"></div>
+      </div>
+
+      <!-- Reader pane -->
+      <div class="alert-reader" id="reader">
+        <div class="reader-empty">Select an alert to read it.</div>
+      </div>
+    </div>
+
+    <nav class="alerts-nav">
+      <a href="student-dashboard.html"><span class="an-ic" data-icon="home"></span>Dashboard</a>
+      <a href="student-timetable.html"><span class="an-ic" data-icon="calendar"></span>Timetable</a>
+      <a href="student-records.html"><span class="an-ic" data-icon="clipboard-check"></span>Attendance</a>
+      <a href="student-notifications.html" class="active"><span class="an-ic" data-icon="bell"></span>Notifications</a>
+      <a href="#" id="navLogout"><span class="an-ic" data-icon="user"></span>Profile</a>
+    </nav>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/seed.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/student-alerts.js"></script>
+</body>
+</html>
