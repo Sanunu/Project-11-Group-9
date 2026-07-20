@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMCS — User Management</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="logo" data-icon="graduation-cap"></div>
+        <div>
+          <div class="name">CMCS Admin</div>
+          <div class="sub">MANAGEMENT SUITE</div>
+        </div>
+      </div>
+      <ul class="nav">
+        <li><a href="admin-dashboard.html"><span class="ic" data-icon="grid"></span> Dashboard</a></li>
+        <li><a href="admin-users.html" class="active"><span class="ic" data-icon="users"></span> Register Users</a></li>
+        <li><a href="admin-approvals.html"><span class="ic" data-icon="clipboard-check"></span> Approve Schedules</a></li>
+        <li><a href="admin-dashboard.html"><span class="ic" data-icon="bell"></span> System Notifications</a></li>
+        <li><a href="admin-dashboard.html"><span class="ic" data-icon="activity"></span> System Monitoring</a></li>
+        <li><a href="admin-users.html"><span class="ic" data-icon="user"></span> Profile Settings</a></li>
+      </ul>
+      <div class="sidebar-user">
+        <div class="row">
+          <div class="avatar" id="sideAvatar">AS</div>
+          <div>
+            <div class="u-name" id="sideName">Mr. Andrew Sesay</div>
+            <div class="u-role">System Administrator</div>
+          </div>
+        </div>
+        <button class="logout-btn" id="logoutBtn"><span data-icon="log-out"></span> Logout</button>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="main">
+      <div class="topbar">
+        <a href="admin-dashboard.html" class="btn btn-outline" style="padding:8px 14px;"><span data-icon="chevron-right" style="transform:rotate(180deg)"></span> Back</a>
+        <div>
+          <div style="font-size:18px;font-weight:800;">User Management</div>
+        </div>
+        <div class="spacer"></div>
+        <div class="status">
+          <div class="s-label">Admin Panel</div>
+          <div class="s-val" style="color:var(--primary-dark)">MASTER CONTROL</div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="um-grid">
+          <!-- Register form -->
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+              <span style="font-size:22px;color:var(--primary)" data-icon="user-plus"></span>
+              <h2 style="font-size:22px;font-weight:800;">Register New Account</h2>
+            </div>
+            <p class="muted" style="margin-bottom:18px;">Provision new digital identities for students and faculty members.</p>
+
+            <div class="card panel">
+              <h3 style="font-size:17px;font-weight:800;">User Details</h3>
+              <p class="muted" style="font-size:13px;margin:2px 0 18px;">Enter the personal and academic information of the user.</p>
+
+              <form id="registerForm" novalidate>
+                <div class="field">
+                  <label for="fullName">Full Name</label>
+                  <input class="input" type="text" id="fullName" placeholder="e.g. Dr. Sarah Jenkins or John Doe" />
+                </div>
+                <div class="field">
+                  <label for="regEmail">Institutional Email</label>
+                  <input class="input" type="email" id="regEmail" placeholder="name@university.edu" />
+                </div>
+                <div class="form-2col">
+                  <div class="field">
+                    <label for="regRole">User Role</label>
+                    <select class="select" id="regRole">
+                      <option value="student">Student</option>
+                      <option value="lecturer">Lecturer</option>
+                      <option value="admin">Admin</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="regMajor">Major / Department</label>
+                    <input class="input" type="text" id="regMajor" placeholder="Computer Science" />
+                  </div>
+                </div>
+                <label class="checkbox-row">
+                  <input type="checkbox" id="autoGen" checked />
+                  Auto-generate secure password and email credentials
+                </label>
+                <button type="submit" class="btn btn-primary btn-block" style="padding:13px;">
+                  <span data-icon="user-plus"></span> Complete Registration
+                </button>
+              </form>
+            </div>
+
+            <div class="guidelines">
+              <h4><span data-icon="book-open"></span> Registration Guidelines</h4>
+              <ul>
+                <li>Passwords must be reset upon first system login for all new users.</li>
+                <li>Institutional emails are verified against the central domain registry.</li>
+                <li>Role permissions are inherited automatically based on selection.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Directory -->
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+              <span style="font-size:22px;color:var(--primary)" data-icon="search"></span>
+              <h2 style="font-size:22px;font-weight:800;">User Directory</h2>
+            </div>
+            <p class="muted" style="margin-bottom:18px;">Browse, filter, and manage existing system accounts across all roles.</p>
+
+            <div class="card panel">
+              <div class="dir-toolbar">
+                <div class="searchbox">
+                  <span class="search-ic" data-icon="search"></span>
+                  <input type="text" id="dirSearch" placeholder="Search name, ID or email..." />
+                </div>
+                <div class="seg" id="roleFilter">
+                  <button class="active" data-role="all">All</button>
+                  <button data-role="student">Students</button>
+                  <button data-role="lecturer">Lecturers</button>
+                </div>
+              </div>
+
+              <div class="user-row" style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-soft);font-weight:600;">
+                <span>User Profile</span><span>Role &amp; ID</span><span>Department/Course</span><span>Actions</span>
+              </div>
+
+              <div id="userList"></div>
+
+              <div class="dir-foot">
+                <span id="dirCount">Showing 0 users</span>
+                <div class="pager">
+                  <button class="btn btn-outline" style="padding:7px 14px;">Previous</button>
+                  <button class="btn btn-outline" style="padding:7px 14px;">Next</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <span><b>CMCS Admin Dashboard</b> | Version 2.4.0-Stable</span>
+        <span><a href="#">Security Policy</a> &nbsp; <a href="#">System Logs</a> &nbsp; <a href="#">Support Portal</a></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/seed.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/admin-users.js"></script>
+</body>
+</html>
