@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMCS — Lecturer Hub</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+</head>
+<body>
+  <div class="phone-bg">
+    <div class="phone">
+      <div class="status-bar">
+        <span id="clock">9:41</span>
+        <span class="icons">
+          <span data-icon="signal"></span>
+          <span data-icon="wifi"></span>
+          <span data-icon="battery"></span>
+        </span>
+      </div>
+
+      <div class="app-header">
+        <div class="app-logo" data-icon="graduation-cap"></div>
+        <div class="app-title">Lecturer Hub</div>
+        <div class="header-right">
+          <span class="notif-dot" data-icon="bell"></span>
+          <div class="avatar" id="hdrAvatar">EL</div>
+        </div>
+      </div>
+
+      <div class="app-body">
+        <div class="greet">
+          <h1 id="greetName">Hello, Eng. Lukeman</h1>
+          <p id="greetSub">You have 2 classes left for today.</p>
+        </div>
+
+        <div class="app-grid">
+          <!-- stats + actions sidebar (right on desktop, top on mobile) -->
+          <div class="app-col-side">
+            <div class="stat-pair" style="margin-top:0">
+              <div class="mini-card">
+                <div class="mc-top"><div class="mc-ic" data-icon="book-open"></div><span class="mc-tag">ACTIVE</span></div>
+                <div class="mc-num" id="todayCount">04</div>
+                <div class="mc-lbl">Today's Classes</div>
+              </div>
+              <div class="mini-card urgent">
+                <div class="mc-top"><div class="mc-ic" style="background:#ffe6e6;color:var(--danger)" data-icon="alert-triangle"></div><span class="mc-tag red">URGENT</span></div>
+                <div class="mc-num">02</div>
+                <div class="mc-lbl">Pending Attendance</div>
+              </div>
+            </div>
+
+            <div class="section-title">Quick Actions</div>
+            <div class="quick-actions">
+              <div class="qa" data-action="attendance"><div class="qa-ic" data-icon="check-square"></div><span class="qa-lbl">Attendance</span></div>
+              <div class="qa active-bg" data-action="schedule"><div class="qa-ic" data-icon="calendar-plus"></div><span class="qa-lbl">New Schedule</span></div>
+              <div class="qa" data-action="announce"><div class="qa-ic" data-icon="megaphone"></div><span class="qa-lbl">Announcement</span></div>
+            </div>
+          </div>
+
+          <!-- main column (left on desktop) -->
+          <div class="app-col-main">
+            <div class="sched-card" style="margin-top:22px;">
+              <div class="sc-head">
+                <span data-icon="clock"></span>
+                <h3>Today's Schedule</h3>
+                <a href="#" class="spacer" style="text-align:right;font-size:13px;font-weight:600;">View All ›</a>
+              </div>
+              <div id="schedList"></div>
+            </div>
+
+            <div class="row-between">
+              <div class="section-title">Recent Broadcasts</div>
+              <a href="#" id="manageAll">Manage All</a>
+            </div>
+            <div id="broadcastList"></div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="bottom-nav">
+        <a href="lecturer-dashboard.html" class="active"><span class="bn-ic" data-icon="home"></span>Home</a>
+        <a href="#" data-action="schedule"><span class="bn-ic" data-icon="calendar"></span>Schedule</a>
+        <a href="#" data-action="attendance"><span class="bn-ic" data-icon="check-square"></span>Marking</a>
+        <a href="#" data-action="announce"><span class="bn-ic" data-icon="megaphone"></span>Broadcast</a>
+        <a href="#" id="navLogout"><span class="bn-ic" data-icon="log-out"></span>Logout</a>
+      </nav>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/seed.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/lecturer.js"></script>
+</body>
+</html>
