@@ -1,0 +1,164 @@
+/* ============================================================
+   login.css  —  Login / portal page
+   ============================================================ */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(160deg, #eef4ff 0%, #f6f7f9 60%);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  padding: 40px 32px 28px;
+}
+
+.brand-logo {
+  width: 68px;
+  height: 68px;
+  border-radius: 18px;
+  background: linear-gradient(160deg, #4f97ff, var(--primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 30px;
+  color: #fff;
+}
+
+.login-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.3px;
+}
+.login-subtitle {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--text-soft);
+  margin: 6px 0 28px;
+}
+
+.password-wrap {
+  position: relative;
+}
+.password-wrap .toggle-eye {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--text-soft);
+}
+
+.login-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4px 0 22px;
+  font-size: 13px;
+}
+.login-row label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.divider-text {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--text-soft);
+  margin: 26px 0 16px;
+  position: relative;
+}
+.divider-text::before,
+.divider-text::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 26%;
+  height: 1px;
+  background: var(--border);
+}
+.divider-text::before { left: 0; }
+.divider-text::after  { right: 0; }
+
+.role-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.role-chip {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 8px;
+  text-align: center;
+  cursor: pointer;
+  background: #fff;
+  transition: border 0.15s, background 0.15s, box-shadow 0.15s;
+}
+.role-chip .role-icon { font-size: 22px; color: var(--primary); }
+.role-chip .role-name {
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+.role-chip.active {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  box-shadow: 0 0 0 3px rgba(47, 123, 246, 0.12);
+}
+.role-chip.active .role-name { color: var(--primary-dark); }
+
+/* shake the role selector when a user tries to log in without picking one */
+.role-grid.shake { animation: role-shake 0.4s ease; }
+.role-grid.shake .role-chip { border-color: var(--danger); }
+@keyframes role-shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.login-foot {
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-soft);
+  margin-top: 24px;
+  line-height: 1.7;
+}
+
+.hint-box {
+  margin-top: 18px;
+  background: var(--primary-soft);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 12px;
+  color: var(--primary-dark);
+}
+.hint-box b { display: block; margin-bottom: 4px; }
+.hint-box code {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 11px;
+}
