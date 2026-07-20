@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMCS — Schedule Approvals</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+  <link rel="stylesheet" href="css/approvals.css" />
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="logo" data-icon="graduation-cap"></div>
+        <div>
+          <div class="name">CMCS Admin</div>
+          <div class="sub">MANAGEMENT SUITE</div>
+        </div>
+      </div>
+      <ul class="nav">
+        <li><a href="admin-dashboard.html"><span class="ic" data-icon="grid"></span> Dashboard</a></li>
+        <li><a href="admin-users.html"><span class="ic" data-icon="users"></span> Register Users</a></li>
+        <li><a href="admin-approvals.html" class="active"><span class="ic" data-icon="clipboard-check"></span> Approve Schedules</a></li>
+        <li><a href="admin-dashboard.html"><span class="ic" data-icon="bell"></span> System Notifications</a></li>
+        <li><a href="admin-dashboard.html"><span class="ic" data-icon="activity"></span> System Monitoring</a></li>
+        <li><a href="admin-users.html"><span class="ic" data-icon="user"></span> Profile Settings</a></li>
+      </ul>
+      <div class="sidebar-user">
+        <div class="row">
+          <div class="avatar" id="sideAvatar">AS</div>
+          <div>
+            <div class="u-name" id="sideName">Mr. Andrew Sesay</div>
+            <div class="u-role">System Administrator</div>
+          </div>
+        </div>
+        <button class="logout-btn" id="logoutBtn"><span data-icon="log-out"></span> Logout</button>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="main">
+      <div class="topbar">
+        <div>
+          <div style="font-size:18px;font-weight:800;">Schedule Change Approvals</div>
+        </div>
+        <div class="spacer"></div>
+        <div class="status">
+          <div class="s-label">Pending Queue</div>
+          <div class="s-val" style="color:var(--primary-dark)" id="queueCount">0 items</div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="page-head">
+          <div>
+            <h1>Pending Requests</h1>
+            <p>Review and manage lecturer-initiated timetable modifications.</p>
+          </div>
+        </div>
+
+        <div class="req-toolbar">
+          <div class="searchbox">
+            <span class="search-ic" data-icon="search"></span>
+            <input type="text" id="reqSearch" placeholder="Search lecturer or course..." />
+          </div>
+          <div class="spacer"></div>
+          <div class="filter-tabs" id="statusFilter">
+            <button class="active" data-status="all">All</button>
+            <button data-status="pending">Pending</button>
+            <button data-status="approved">Approved</button>
+            <button data-status="rejected">Rejected</button>
+          </div>
+        </div>
+
+        <div id="requestList"></div>
+
+        <div class="dir-foot">
+          <span id="reqCount">Showing 0 requests</span>
+        </div>
+      </div>
+
+      <div class="footer">
+        <span><b>CMCS Admin Dashboard</b> | Version 2.4.0-Stable</span>
+        <span><a href="#">Security Policy</a> &nbsp; <a href="#">System Logs</a> &nbsp; <a href="#">Support Portal</a></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/seed.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/admin-approvals.js"></script>
+</body>
+</html>
