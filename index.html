@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMCS — Institutional Portal</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+  <div class="login-page">
+    <div class="login-card">
+      <div class="brand-logo" data-icon="graduation-cap"></div>
+      <h1 class="login-title">Class Management &amp;<br />Communication System</h1>
+      <p class="login-subtitle">INSTITUTIONAL PORTAL</p>
+
+      <form id="loginForm" novalidate>
+        <div class="field">
+          <label for="email">INSTITUTIONAL EMAIL / ID</label>
+          <input class="input" type="email" id="email" placeholder="name@university.edu" autocomplete="username" />
+        </div>
+
+        <div class="field">
+          <label for="password">SECURITY PASSWORD</label>
+          <div class="password-wrap">
+            <input class="input" type="password" id="password" placeholder="••••••••••••" autocomplete="current-password" />
+            <button type="button" class="toggle-eye" id="togglePwd" aria-label="Show password" data-icon="eye"></button>
+          </div>
+        </div>
+
+        <div class="login-row">
+          <label><input type="checkbox" id="remember" /> Remember device</label>
+          <a href="#" id="forgot">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" style="padding:14px;font-size:15px;">
+          Secure Login →
+        </button>
+      </form>
+
+      <p class="divider-text">AUTHORIZED ACCESS ONLY</p>
+
+      <div class="role-grid" id="roleGrid">
+        <div class="role-chip" data-role="student">
+          <div class="role-icon" data-icon="building"></div>
+          <span class="role-name">STUDENT</span>
+        </div>
+        <div class="role-chip" data-role="lecturer">
+          <div class="role-icon" data-icon="user"></div>
+          <span class="role-name">LECTURER</span>
+        </div>
+        <div class="role-chip" data-role="admin">
+          <div class="role-icon" data-icon="shield"></div>
+          <span class="role-name">ADMIN</span>
+        </div>
+      </div>
+
+      <p class="login-foot">
+        By logging in you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.<br />
+        © 2024 CMCS Academic Systems v2.4.0
+      </p>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/seed.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>
