@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMCS — Attendance Records</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+  <link rel="stylesheet" href="css/student-pages.css" />
+</head>
+<body>
+  <div class="phone-bg">
+    <div class="phone">
+      <div class="status-bar">
+        <span id="clock">9:41</span>
+        <span class="icons">
+          <span data-icon="signal"></span>
+          <span data-icon="wifi"></span>
+          <span data-icon="battery"></span>
+        </span>
+      </div>
+
+      <div class="s-header">
+        <button class="back" onclick="location.href='student-dashboard.html'" data-icon="chevron-left" aria-label="Back"></button>
+        <h1>Attendance Records</h1>
+        <div class="h-actions">
+          <span class="notif-dot" data-icon="bell"></span>
+          <span data-icon="user-circle"></span>
+        </div>
+      </div>
+
+      <div class="app-body">
+        <div class="progress-card">
+          <div class="pc-head">
+            <div>
+              <h2>Monthly Progress</h2>
+              <div class="pc-sub">Academic Year 2023-24</div>
+            </div>
+            <span class="overall" id="overallPct">88% Overall</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="attChart" width="640" height="200"></canvas>
+          </div>
+          <div class="legend">
+            <span class="lg"><span class="dot present"></span> Present</span>
+            <span class="lg"><span class="dot absent"></span> Absent</span>
+          </div>
+          <div class="note-box">
+            <span class="n-ic" data-icon="alert-circle"></span>
+            <span>Maintain at least 75% attendance to remain eligible for end-semester examinations.</span>
+          </div>
+        </div>
+
+        <div class="logs-head">
+          <h3>Detailed Logs</h3>
+          <span class="filter-link"><span data-icon="settings"></span> Filter</span>
+        </div>
+
+        <div class="pill-row" id="statusFilter">
+          <button class="pill active" data-status="all">All</button>
+          <button class="pill" data-status="present">Present</button>
+          <button class="pill" data-status="absent">Absent</button>
+          <button class="pill" data-status="late">Late</button>
+        </div>
+
+        <div class="logs-grid" id="logList" style="margin-top:14px;"></div>
+
+        <button class="load-more" id="loadMore">Load Previous Months</button>
+      </div>
+
+      <nav class="bottom-nav">
+        <a href="student-dashboard.html"><span class="bn-ic" data-icon="home"></span>Home</a>
+        <a href="student-timetable.html"><span class="bn-ic" data-icon="calendar"></span>Schedule</a>
+        <a href="student-records.html" class="active"><span class="bn-ic" data-icon="clipboard-check"></span>Attendance</a>
+        <a href="student-notifications.html"><span class="bn-ic" data-icon="bell"></span>Alerts</a>
+        <a href="#" id="navLogout"><span class="bn-ic" data-icon="user"></span>Profile</a>
+      </nav>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/seed.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/student-records.js"></script>
+</body>
+</html>
