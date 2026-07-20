@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMCS — Student</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+</head>
+<body>
+  <div class="phone-bg">
+    <div class="phone">
+      <div class="status-bar">
+        <span id="clock">9:41</span>
+        <span class="icons">
+          <span data-icon="signal"></span>
+          <span data-icon="wifi"></span>
+          <span data-icon="battery"></span>
+        </span>
+      </div>
+
+      <div class="app-header">
+        <div class="app-logo" data-icon="graduation-cap"></div>
+        <div class="app-title" id="hiName">Hi, Alex</div>
+        <div class="header-right">
+          <span class="notif-dot" data-icon="bell"></span>
+          <div class="avatar" id="hdrAvatar">AJ</div>
+        </div>
+      </div>
+
+      <div class="app-body">
+        <div class="app-grid">
+          <!-- stats sidebar (right on desktop, top on mobile) -->
+          <div class="app-col-side">
+            <div class="top-cards">
+              <div class="att-card">
+                <div class="att-title">Attendance</div>
+                <svg class="ring" width="120" height="120" viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="50" fill="none" stroke="#cfe0fb" stroke-width="12" />
+                  <circle id="attRing" cx="60" cy="60" r="50" fill="none" stroke="#2f7bf6"
+                          stroke-width="12" stroke-linecap="round"
+                          stroke-dasharray="314" stroke-dashoffset="314"
+                          transform="rotate(-90 60 60)" />
+                  <text id="attText" x="60" y="68" text-anchor="middle" font-size="26" font-weight="800" fill="#2f7bf6">0%</text>
+                </svg>
+                <div class="att-note">Keep it above 80% to maintain eligibility</div>
+              </div>
+              <div class="side-col">
+                <div class="notif-card">
+                  <div class="nc-title">Notifications</div>
+                  <div class="nc-num" id="alertCount">03</div>
+                  <div style="font-size:12px;color:var(--text-muted)">New Alerts</div>
+                  <a href="#" id="viewInbox">View Inbox</a>
+                </div>
+                <div class="exam-card">
+                  <div>
+                    <div class="ec-label">UPCOMING EXAM</div>
+                    <div class="ec-title">Data Structures</div>
+                  </div>
+                  <span style="font-size:18px;color:var(--danger)" data-icon="alert-circle"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- main column (left on desktop) -->
+          <div class="app-col-main">
+            <!-- highlight -->
+            <div class="row-between" style="margin-top:0">
+              <div class="section-title" style="margin:0">Today's Highlight</div>
+              <a href="student-timetable.html">Full Timetable</a>
+            </div>
+            <div class="highlight" id="highlightCard"></div>
+
+            <!-- quick actions -->
+            <div class="section-title">Quick Actions</div>
+            <div class="quick-actions four">
+              <div class="qa active-bg" data-action="attendance"><div class="qa-ic" data-icon="check-square"></div><span class="qa-lbl">Attendance</span></div>
+              <div class="qa active-bg" data-action="timetable"><div class="qa-ic" data-icon="calendar"></div><span class="qa-lbl">Timetable</span></div>
+              <div class="qa active-bg" data-action="alerts"><span class="qa-badge">3</span><div class="qa-ic" data-icon="bell"></div><span class="qa-lbl">Alerts</span></div>
+              <div class="qa" data-action="logout"><div class="qa-ic" data-icon="log-out"></div><span class="qa-lbl">Logout</span></div>
+            </div>
+
+            <!-- announcements -->
+            <div class="section-title">Recent Announcements</div>
+            <div id="announceList"></div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="bottom-nav">
+        <a href="student-dashboard.html" class="active"><span class="bn-ic" data-icon="home"></span>Home</a>
+        <a href="#" data-action="attendance"><span class="bn-ic" data-icon="check-square"></span>Attendance</a>
+        <a href="#" data-action="timetable"><span class="bn-ic" data-icon="calendar"></span>Schedule</a>
+        <a href="#" data-action="alerts"><span class="bn-ic" data-icon="bell"></span>Alerts</a>
+        <a href="#" data-action="logout"><span class="bn-ic" data-icon="user"></span>Profile</a>
+      </nav>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/seed.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/student.js"></script>
+</body>
+</html>
