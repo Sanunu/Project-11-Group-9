@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMCS — Admin Console</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="logo" data-icon="graduation-cap"></div>
+        <div>
+          <div class="name">CMCS Admin</div>
+          <div class="sub">MANAGEMENT SUITE</div>
+        </div>
+      </div>
+      <ul class="nav">
+        <li><a href="admin-dashboard.html" class="active"><span class="ic" data-icon="grid"></span> Dashboard</a></li>
+        <li><a href="admin-users.html"><span class="ic" data-icon="users"></span> Register Users</a></li>
+        <li><a href="admin-approvals.html"><span class="ic" data-icon="clipboard-check"></span> Approve Schedules</a></li>
+        <li><a href="#" data-scroll="logs"><span class="ic" data-icon="bell"></span> System Notifications</a></li>
+        <li><a href="#" data-scroll="health"><span class="ic" data-icon="activity"></span> System Monitoring</a></li>
+        <li><a href="admin-users.html"><span class="ic" data-icon="user"></span> Profile Settings</a></li>
+      </ul>
+      <div class="sidebar-user">
+        <div class="row">
+          <div class="avatar" id="sideAvatar">AS</div>
+          <div>
+            <div class="u-name" id="sideName">Mr. Andrew Sesay</div>
+            <div class="u-role">System Administrator</div>
+          </div>
+        </div>
+        <button class="logout-btn" id="logoutBtn"><span data-icon="log-out"></span> Logout</button>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="main">
+      <div class="topbar">
+        <div class="searchbox">
+          <span class="search-ic" data-icon="search"></span>
+          <input type="text" placeholder="Search users, courses, or schedules..." />
+        </div>
+        <div class="spacer"></div>
+        <div class="status">
+          <div class="s-label">Server Status</div>
+          <div class="s-val">Operational</div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="page-head">
+          <div>
+            <h1>Admin Console</h1>
+            <p id="welcomeLine">Welcome back. Here's what's happening with the CMCS system today.</p>
+          </div>
+          <div class="actions">
+            <button class="btn btn-outline" id="reportBtn"><span data-icon="arrow-up-right"></span> Generate Report</button>
+            <a class="btn btn-primary" href="admin-users.html"><span data-icon="user-plus"></span> Register New User</a>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stat-grid">
+          <div class="card stat-card">
+            <div class="top"><div class="st-icon" data-icon="graduation-cap"></div><span class="st-tag pos">+2.4%</span></div>
+            <div class="num" id="statStudents">0</div>
+            <div class="lbl">Total Students</div>
+          </div>
+          <div class="card stat-card">
+            <div class="top"><div class="st-icon" data-icon="users"></div><span class="st-tag pos">+12</span></div>
+            <div class="num" id="statLecturers">0</div>
+            <div class="lbl">Total Lecturers</div>
+          </div>
+          <div class="card stat-card">
+            <div class="top"><div class="st-icon" data-icon="clock"></div><span class="st-tag">8 Active Now</span></div>
+            <div class="num" id="statClasses">0</div>
+            <div class="lbl">Classes Today</div>
+          </div>
+          <div class="card stat-card">
+            <div class="top"><div class="st-icon" data-icon="check-circle"></div><span class="st-tag">High Priority</span></div>
+            <div class="num" id="statApprovals">0</div>
+            <div class="lbl">Pending Approvals</div>
+          </div>
+        </div>
+
+        <!-- Analytics + approvals -->
+        <div class="grid-2">
+          <div class="card panel">
+            <div class="panel-head">
+              <div>
+                <h3>Activity Analytics</h3>
+                <p>Daily platform engagement metrics over the last week.</p>
+              </div>
+              <span class="badge badge-gray">Weekly</span>
+            </div>
+            <div class="chart-box">
+              <canvas id="activityChart" width="700" height="300"></canvas>
+            </div>
+          </div>
+
+          <div class="card panel" id="approvals">
+            <div class="panel-head">
+              <div>
+                <h3>Pending Approvals</h3>
+                <p>Schedule changes needing review.</p>
+              </div>
+              <a href="admin-approvals.html" class="link">View All</a>
+            </div>
+            <div id="approvalList"></div>
+            <div class="backlog">
+              <span id="backlogCount">Total backlog: 0 items</span>
+              <span><span data-icon="zap"></span> 5 Urgent</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Health + logs -->
+        <div class="grid-2">
+          <div class="card panel" id="health">
+            <div class="panel-head"><h3>System Health</h3><span data-icon="settings" class="muted"></span></div>
+            <div class="health-row">
+              <div class="hr-top"><span><span data-icon="cpu"></span> CPU Load</span><span>42%</span></div>
+              <div class="progress"><span style="width:42%;background:var(--primary)"></span></div>
+            </div>
+            <div class="health-row">
+              <div class="hr-top"><span><span data-icon="bar-chart"></span> Memory Usage</span><span>78%</span></div>
+              <div class="progress"><span style="width:78%;background:var(--primary)"></span></div>
+            </div>
+            <div class="health-row">
+              <div class="hr-top"><span><span data-icon="database"></span> DB Connectivity</span><span>99%</span></div>
+              <div class="progress"><span style="width:99%;background:var(--danger)"></span></div>
+            </div>
+            <div class="health-foot">
+              <span class="muted">Active Server Nodes</span>
+              <span><b>4 / 4</b> Online</span>
+            </div>
+          </div>
+
+          <div class="card panel" id="logs">
+            <div class="panel-head"><h3>Recent System Logs</h3></div>
+            <div style="overflow-x:auto">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Timestamp</th><th>Event Type</th><th>User / Process</th><th>Status</th><th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="logBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <span>© 2024 Class Management &amp; Communication System (CMCS). Institutional Admin v4.2.1</span>
+        <span><a href="#">Privacy Policy</a> &nbsp; <a href="#">System Support</a> &nbsp; <a href="#">Documentation</a></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/seed.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/admin-dashboard.js"></script>
+</body>
+</html>
