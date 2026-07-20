@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMCS — Broadcast</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+  <link rel="stylesheet" href="css/lecturer-pages.css" />
+</head>
+<body>
+  <div class="phone-bg">
+    <div class="phone">
+      <div class="status-bar">
+        <span id="clock">9:41</span>
+        <span class="icons">
+          <span data-icon="signal"></span>
+          <span data-icon="wifi"></span>
+          <span data-icon="battery"></span>
+        </span>
+      </div>
+
+      <div class="sub-header">
+        <button class="back" onclick="location.href='lecturer-dashboard.html'" data-icon="chevron-left" aria-label="Back"></button>
+        <h1>Broadcast</h1>
+        <div class="h-actions">
+          <button class="btn btn-primary" id="sendBtn" style="padding:9px 16px;">Send <span data-icon="send"></span></button>
+        </div>
+      </div>
+
+      <div class="app-body">
+        <!-- Step 1 -->
+        <div class="step-title"><span class="step-num">1</span> Compose Message</div>
+
+        <div class="audience-label">
+          <span>Target Audience</span>
+          <span class="a-count" id="groupCount">0 groups selected</span>
+        </div>
+        <div class="chips" id="chips"></div>
+
+        <div class="field" style="margin-top:16px;">
+          <label for="subject">Subject</label>
+          <input class="input" type="text" id="subject" placeholder="e.g. Schedule Update for Midterms" />
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-title"><span class="step-num">2</span> Content &amp; Media</div>
+        <div class="editor">
+          <div class="editor-tools">
+            <button title="Bold" data-icon="bold"></button>
+            <button title="Italic" data-icon="italic"></button>
+            <button title="List" data-icon="list"></button>
+            <span class="sep"></span>
+            <button title="Link" data-icon="link"></button>
+            <button title="Image" data-icon="image"></button>
+            <button title="Tag" data-icon="hash"></button>
+          </div>
+          <textarea id="messageBody" placeholder="Write your announcement details here..."></textarea>
+          <div class="char-count"><span id="charCount">0</span> characters</div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:8px;margin:16px 0 10px;font-size:13px;font-weight:600;color:var(--text-muted);">
+          <span data-icon="paperclip"></span> Attachments
+        </div>
+        <div class="attach-list" id="attachList"></div>
+
+        <!-- Step 3 -->
+        <div class="step-title"><span class="step-num">3</span> Final Review</div>
+        <div class="collapse-row" id="advToggle">
+          <span>Advanced Sending Options</span>
+          <span data-icon="chevron-down" id="advChevron"></span>
+        </div>
+        <div id="advOptions">
+          <div class="review-toggle checked" data-opt="push">
+            <div class="cbox" data-icon="check"></div>
+            <div>
+              <div class="rt-title">Push Notifications</div>
+              <div class="rt-sub">Notify students instantly via mobile alert.</div>
+            </div>
+          </div>
+          <div class="review-toggle" data-opt="email">
+            <div class="cbox" data-icon="check"></div>
+            <div>
+              <div class="rt-title">Email Mirroring</div>
+              <div class="rt-sub">Send a copy to registered student emails.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live preview -->
+        <div class="preview-card">
+          <div class="preview-head">
+            <span class="ph-title"><span data-icon="eye"></span> Live Student Preview</span>
+            <span class="badge badge-gray">Draft</span>
+          </div>
+          <div class="preview-inner">
+            <div class="pi-top">
+              <div class="avatar" id="prevAvatar">EL</div>
+              <div>
+                <div class="pi-name" id="prevName">Eng. Lukeman</div>
+                <div class="pi-meta">Computer Science Dept • Just now</div>
+              </div>
+              <span class="spacer"></span>
+              <span data-icon="more-vertical" class="muted"></span>
+            </div>
+            <div class="pi-subject" id="prevSubject">Upcoming Midterm Examination Details</div>
+            <div class="pi-body" id="prevBody">Please note that the midterm for CS302 has been rescheduled to next Friday. All students...</div>
+            <div class="pi-files" id="prevFiles"><span data-icon="paperclip"></span> <span id="prevFileCount">2</span> Files Attached</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="autosave">
+        <span data-icon="check-circle"></span> Draft saved automatically at <span id="saveTime">10:45 AM</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/seed.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/lecturer-broadcast.js"></script>
+</body>
+</html>
