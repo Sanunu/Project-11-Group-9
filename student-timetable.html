@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMCS — Weekly Timetable</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+  <link rel="stylesheet" href="css/student-pages.css" />
+</head>
+<body>
+  <div class="phone-bg">
+    <div class="phone">
+      <div class="status-bar">
+        <span id="clock">9:41</span>
+        <span class="icons">
+          <span data-icon="signal"></span>
+          <span data-icon="wifi"></span>
+          <span data-icon="battery"></span>
+        </span>
+      </div>
+
+      <div class="s-header">
+        <span class="s-logo" data-icon="graduation-cap"></span>
+        <h1>Weekly Timetable</h1>
+        <div class="h-actions">
+          <span class="notif-dot" data-icon="bell"></span>
+          <span data-icon="user-circle"></span>
+        </div>
+      </div>
+
+      <div class="day-strip" id="dayStrip"></div>
+
+      <div class="tt-legend">
+        <span class="lg"><span class="dot lec"></span> Lecture</span>
+        <span class="lg"><span class="dot lab"></span> Lab/Practical</span>
+        <span class="week"><span data-icon="alert-circle"></span> Week 8</span>
+      </div>
+
+      <div class="app-body" style="padding:0;">
+        <div class="timeline" id="timeline"></div>
+
+        <div class="daily-progress">
+          <div class="dp-ic" data-icon="book-open"></div>
+          <div>
+            <div class="dp-title">Daily Progress</div>
+            <div class="dp-sub" id="dpSub">You have 0 classes today.</div>
+          </div>
+          <span class="dp-chev" data-icon="chevron-right"></span>
+        </div>
+      </div>
+
+      <nav class="bottom-nav">
+        <a href="student-dashboard.html"><span class="bn-ic" data-icon="home"></span>Home</a>
+        <a href="student-timetable.html" class="active"><span class="bn-ic" data-icon="calendar"></span>Schedule</a>
+        <a href="student-records.html"><span class="bn-ic" data-icon="clipboard-check"></span>Records</a>
+        <a href="student-notifications.html"><span class="bn-ic" data-icon="bell"></span>Inbox</a>
+        <a href="#" id="navLogout"><span class="bn-ic" data-icon="user"></span>Profile</a>
+      </nav>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/seed.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/student-timetable.js"></script>
+</body>
+</html>
