@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMCS — Attendance</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+  <link rel="stylesheet" href="css/lecturer-pages.css" />
+</head>
+<body>
+  <div class="phone-bg">
+    <div class="phone">
+      <div class="status-bar">
+        <span id="clock">9:41</span>
+        <span class="icons">
+          <span data-icon="signal"></span>
+          <span data-icon="wifi"></span>
+          <span data-icon="battery"></span>
+        </span>
+      </div>
+
+      <div class="sub-header">
+        <button class="back" onclick="location.href='lecturer-dashboard.html'" data-icon="chevron-left" aria-label="Back"></button>
+        <h1 id="pageTitle">CS101 Attendance</h1>
+        <div class="h-actions">
+          <span class="notif-dot" data-icon="bell"></span>
+          <span data-icon="user-circle"></span>
+        </div>
+      </div>
+
+      <div class="app-body">
+        <div class="att-course">
+          <div class="ac-top">
+            <div>
+              <h2 id="courseName">Computer Science 300</h2>
+              <div class="loc"><span data-icon="map-pin"></span> <span id="courseRoom">Lecture Hall B-12</span></div>
+            </div>
+            <span class="count-badge"><span data-icon="users"></span> <span id="markedCount">0/0</span></span>
+          </div>
+        </div>
+
+        <div class="meta-cards">
+          <div class="meta-card">
+            <div class="m-ic" data-icon="calendar"></div>
+            <div>
+              <div class="m-label">DATE</div>
+              <div class="m-val" id="todayDate">Feb 17, 2026</div>
+            </div>
+          </div>
+          <div class="meta-card">
+            <div class="m-ic" data-icon="clock"></div>
+            <div>
+              <div class="m-label">SESSION START</div>
+              <div class="m-val" id="sessionStart">01:40 PM</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="search-row">
+          <div class="m-search">
+            <span class="s-ic" data-icon="search"></span>
+            <input type="text" id="studentSearch" placeholder="Search students..." />
+          </div>
+          <div class="icon-square" title="Filter"><span data-icon="settings"></span></div>
+        </div>
+
+        <div class="roster-head">
+          <span id="rosterLabel">Student Roster (0)</span>
+          <span>Status</span>
+        </div>
+        <div class="roster" id="roster"></div>
+      </div>
+
+      <div class="att-footer">
+        <div class="progress-row">
+          <span id="progressLabel">0 of 0 Marked</span>
+          <span></span>
+        </div>
+        <div class="pbar"><span id="pbarFill" style="width:0%"></span></div>
+        <button class="btn btn-primary btn-block" id="markAllBtn" style="margin-top:12px;padding:14px;">
+          Mark All Students
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/seed.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/lecturer-attendance.js"></script>
+</body>
+</html>
