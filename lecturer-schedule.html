@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMCS — Set Class</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+  <link rel="stylesheet" href="css/lecturer-pages.css" />
+</head>
+<body>
+  <div class="phone-bg">
+    <div class="phone">
+      <div class="status-bar">
+        <span id="clock">9:41</span>
+        <span class="icons">
+          <span data-icon="signal"></span>
+          <span data-icon="wifi"></span>
+          <span data-icon="battery"></span>
+        </span>
+      </div>
+
+      <div class="sub-header">
+        <button class="back" onclick="location.href='lecturer-dashboard.html'" data-icon="chevron-left" aria-label="Back"></button>
+        <h1>Set Class</h1>
+        <div class="h-actions">
+          <span class="link-action" id="saveTop">Save</span>
+        </div>
+      </div>
+
+      <div class="app-body">
+        <div class="warn-banner" id="warnBanner">
+          <span class="w-ic" data-icon="alert-circle"></span>
+          <span>Overlapping slot detected at 10:15 AM</span>
+          <span class="w-close" id="warnClose" data-icon="x"></span>
+        </div>
+
+        <!-- Course + room -->
+        <div class="form-card">
+          <div class="fc-title"><span data-icon="book-open"></span> Select Course</div>
+          <div class="select-row" id="courseRow">
+            <span id="courseText">CS-302: Advanced Algorithms</span>
+            <span data-icon="chevron-right" class="muted"></span>
+          </div>
+          <div class="field" style="margin-top:16px;margin-bottom:0;">
+            <label for="roomNo"><span data-icon="map-pin"></span> Room Number</label>
+            <input class="input" type="text" id="roomNo" value="Lab 402-B" />
+          </div>
+          <div class="hint"><span data-icon="alert-circle"></span> Check availability for shared lab spaces.</div>
+        </div>
+
+        <!-- Calendar -->
+        <div class="form-card">
+          <div class="fc-title"><span data-icon="calendar"></span> Schedule Date</div>
+          <div class="cal-head">
+            <div class="cal-title" id="calTitle">Month YYYY</div>
+            <div class="cal-nav">
+              <button id="calPrev" data-icon="chevron-left" aria-label="Previous month"></button>
+              <button id="calNext" data-icon="chevron-right" aria-label="Next month"></button>
+            </div>
+          </div>
+          <div class="cal-grid" id="calGrid"></div>
+        </div>
+
+        <!-- Time slots -->
+        <div class="form-card">
+          <div class="fc-title" style="justify-content:space-between;">
+            <span style="display:flex;align-items:center;gap:9px;"><span data-icon="clock"></span> Time Slot</span>
+            <span style="font-size:12px;font-weight:500;color:var(--text-soft);">Standard 90m slot</span>
+          </div>
+          <div class="slots" id="slots">
+            <div class="slot-opt" data-slot="08:30 AM - 10:00 AM">
+              <div class="so-top"><span data-icon="clock"></span><span class="radio"></span></div>
+              <div class="so-time">08:30 AM</div>
+              <div class="so-sub">to 10:00 AM</div>
+            </div>
+            <div class="slot-opt conflict" data-slot="10:15 AM - 11:45 AM">
+              <div class="so-top"><span data-icon="clock"></span><span class="badge badge-red">Conflict</span></div>
+              <div class="so-time">10:15 AM</div>
+              <div class="so-sub">to 11:45 AM</div>
+            </div>
+            <div class="slot-opt selected" data-slot="01:00 PM - 02:30 PM">
+              <div class="so-top"><span data-icon="clock"></span><span class="radio"></span></div>
+              <div class="so-time">01:00 PM</div>
+              <div class="so-sub">to 02:30 PM</div>
+            </div>
+            <div class="slot-opt" data-slot="02:45 PM - 04:15 PM">
+              <div class="so-top"><span data-icon="clock"></span><span class="radio"></span></div>
+              <div class="so-time">02:45 PM</div>
+              <div class="so-sub">to 04:15 PM</div>
+            </div>
+          </div>
+
+          <div class="recur">
+            <div>
+              <div class="r-title">Weekly Recurrence</div>
+              <div class="r-sub" id="recurSub">Repeat every week for 12 weeks</div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="recurToggle" checked />
+              <span class="track"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn btn-outline" onclick="location.href='lecturer-dashboard.html'">Cancel</button>
+        <button class="btn btn-primary" id="confirmBtn">Confirm Schedule</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/seed.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/lecturer-schedule.js"></script>
+</body>
+</html>
